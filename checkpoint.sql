@@ -3,7 +3,8 @@ USE unisinos;
 CREATE TABLE alunos(
     ID_Alunos INT AUTO_INCREMENT PRIMARY KEY,
     RG VARCHAR(8),
-    Endereco VARCHAR(30) Nome VARCHAR (45),
+    Endereco VARCHAR(30),
+    Nome VARCHAR (45),
     Email VARCHAR(45),
     Sobrenome VARCHAR(45),
     Data_Nasc DATE
@@ -33,7 +34,7 @@ CREATE TABLE unidades(
     Nome VARCHAR(13),
     Endereço VARCHAR(12),
     Nota_Mec VARCHAR(12),
-    FOREIGN KEY(ID_Alunos) REFERENCES alunos(ID_Alunos),
-    FOREIGN KEY(ID_Professores) REFERENCES alunos(ID_Professores),
-    FOREIGN KEY(ID_Cursos) REFERENCES alunos(ID_Cursos)
+    ID_Alunos  FOREIGN KEY(ID_Alunos) REFERENCES alunos(ID_Alunos),
+    ID_Professores FOREIGN KEY(ID_Professores) REFERENCES alunos(ID_Professores),
+    ID_Cursos FOREIGN KEY(ID_Cursos) REFERENCES alunos(ID_Cursos)
 );
