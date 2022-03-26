@@ -1,7 +1,8 @@
+CREATE DATABASE unisinos;
 USE unisinos;
 
 CREATE TABLE alunos(
-    ID_Alunos INT AUTO_INCREMENT PRIMARY KEY,
+    ID_Alunos INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     RG VARCHAR(8),
     Endereco VARCHAR(30),
     Nome VARCHAR (45),
@@ -11,7 +12,7 @@ CREATE TABLE alunos(
 );
 
 CREATE TABLE professores(
-    ID_Professores INT AUTO_INCREMENT PRIMARY KEY,
+    ID_Professores INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     RG VARCHAR(8),
     Endereco VARCHAR(30),
     Nome VARCHAR(45),
@@ -21,7 +22,7 @@ CREATE TABLE professores(
 );
 
 CREATE TABLE cursos(
-    ID_Cursos INT AUTO_INCREMENT PRIMARY KEY,
+    ID_Cursos INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     Curso VARCHAR(25),
     Duração INT,
     Tipo VARCHAR(10),
@@ -30,11 +31,14 @@ CREATE TABLE cursos(
 );
 
 CREATE TABLE unidades(
-    ID_Unidades INT,
+    ID_Unidades INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     Nome VARCHAR(13),
     Endereço VARCHAR(12),
     Nota_Mec VARCHAR(12),
-    ID_Alunos  FOREIGN KEY(ID_Alunos) REFERENCES alunos(ID_Alunos),
-    ID_Professores FOREIGN KEY(ID_Professores) REFERENCES alunos(ID_Professores),
-    ID_Cursos FOREIGN KEY(ID_Cursos) REFERENCES alunos(ID_Cursos)
+    ID_Alunos INT,
+    FOREIGN KEY(ID_Alunos) REFERENCES alunos(ID_Alunos),
+    ID_Professores INT,
+    FOREIGN KEY(ID_Professores) REFERENCES professores(ID_Professores),
+    ID_Cursos INT,
+    FOREIGN KEY(ID_Cursos) REFERENCES cursos(ID_Cursos)
 );
