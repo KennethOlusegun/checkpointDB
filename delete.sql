@@ -1,2 +1,2 @@
-DELETE FROM alunos
-WHERE ID_Alunos = 4
+DELETE FROM unidades
+WHERE ID_Unidades = 6

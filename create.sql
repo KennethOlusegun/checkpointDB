@@ -18,23 +18,25 @@ CREATE TABLE professores(
     Nome VARCHAR(45),
     Email VARCHAR(45),
     Sobrenome VARCHAR(45),
-    Data_Nasc DATE
+    Data_Nasc DATE,
+    Especialização VARCHAR(40)
 );
 
 CREATE TABLE cursos(
     ID_Cursos INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     Curso VARCHAR(25),
-    Duração INT,
-    Tipo VARCHAR(10),
-    Modalidade VARCHAR(10),
-    Turno VARCHAR(8)
+    Data_Inicio DATE,
+    Data_Termino DATE,
+    Tipo VARCHAR(25),
+    Modalidade VARCHAR(25),
+    Turno VARCHAR(25)
 );
 
 CREATE TABLE unidades(
     ID_Unidades INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    Nome VARCHAR(13),
-    Endereço VARCHAR(12),
-    Nota_Mec VARCHAR(12),
+    Nome VARCHAR(25),
+    Endereço VARCHAR(25),
+    Nota_Mec VARCHAR(25),
     ID_Alunos INT,
     FOREIGN KEY(ID_Alunos) REFERENCES alunos(ID_Alunos),
     ID_Professores INT,
